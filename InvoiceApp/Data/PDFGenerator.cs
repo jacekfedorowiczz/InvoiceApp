@@ -2,12 +2,13 @@
 using InvoiceApp.Entities;
 using Aspose.Pdf;
 using System.Reflection;
+using InvoiceApp.Models.Models;
 
 namespace InvoiceApp.Data
 {
     public class PDFGenerator : IPDFGenerator
     {
-        public void GenerateToPDF(Invoice invoice)
+        public void GenerateToPDF(InvoiceDto invoice)
         {
             string dir = $@"..\Invoices\{invoice.CreatedById}\";
             Document document = new();

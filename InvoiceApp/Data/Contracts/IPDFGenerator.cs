@@ -1,9 +1,9 @@
-﻿using InvoiceApp.Entities;
+﻿using InvoiceApp.Models.Models;
 
 namespace InvoiceApp.Data.Contracts
 {
     public interface IPDFGenerator
     {
-        void GenerateToPDF(Invoice invoice);
+        void GenerateToPDF(InvoiceDto invoice);
     }
 }
