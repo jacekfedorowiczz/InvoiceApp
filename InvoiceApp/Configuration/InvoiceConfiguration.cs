@@ -17,7 +17,10 @@ namespace InvoiceApp.Configuration
             builder.Property(x => x.Products)
                 .IsRequired();
 
-            builder.Property(x => x.InvoiceNumber)
+            builder.Property(x => x.InvoiceNo)
+                .IsRequired();
+
+            builder.Property(x => x.PaymentMethod)
                 .IsRequired();
         }
     }

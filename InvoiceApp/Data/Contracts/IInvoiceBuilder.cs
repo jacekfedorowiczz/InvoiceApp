@@ -10,8 +10,8 @@ namespace InvoiceApp.Data.Contracts
         InvoiceBuilder setDate(DateTimeOffset date);
         InvoiceBuilder setNotes(string note);
         InvoiceBuilder setProducts(IEnumerable<Product> products);
-        InvoiceBuilder setPaymentMethod();
-        InvoiceBuilder setInvoiceNumber();
+        InvoiceBuilder setPaymentMethod(PaymentMethod paymentMethod);
+        InvoiceBuilder setInvoiceNumber(int userId, int invoiceCount);
         Invoice BuildInvoice();
     }
 }

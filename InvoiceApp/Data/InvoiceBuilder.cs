@@ -6,7 +6,8 @@ namespace InvoiceApp.Data
 {
     public class InvoiceBuilder : IInvoiceBuilder
     {
-        private Invoice _invoice = new();
+        private readonly Invoice _invoice = new();
+        private readonly DateTime date = DateTime.Now;
 
         public InvoiceBuilder()
         {
@@ -15,14 +16,16 @@ namespace InvoiceApp.Data
 
         public InvoiceBuilder setDate(DateTimeOffset date)
         {
-            _invoice.Date = date;
+            _invoice.CreateDate = date;
             return this;
         }
 
-        public InvoiceBuilder setInvoiceNumber()
+        public InvoiceBuilder setInvoiceNumber(int userId, int invoiceCount)
         {
-            // zaimplementować tworzenie numerów faktur
-            throw new NotImplementedException();
+            var invoiceNo = $"{userId}-{date.Month}-{date.Year}-{invoiceCount + 1}";
+
+            _invoice.InvoiceNo = invoiceNo;
+            return this;
         }
 
         public InvoiceBuilder setNotes(string note)
@@ -33,14 +36,14 @@ namespace InvoiceApp.Data
 
         public InvoiceBuilder setPaymentMethod(PaymentMethod paymentMethod)
         {
-            // switch na wartosci enuma z dto
-            throw new NotImplementedException();
+            _invoice.PaymentMethod = paymentMethod;
+            return this;
         }
 
         public InvoiceBuilder setProducts(IEnumerable<Product> products)
         {
-            // zaimplementować dodawanie produktów do faktury
-            throw new NotImplementedException();
+            _invoice.Products = products;
+            return this;
         }
 
         public InvoiceBuilder setVendee(string vendee)
@@ -54,6 +57,7 @@ namespace InvoiceApp.Data
             _invoice.Vendor = vendor;
             return this;
         }
+
         public Invoice BuildInvoice()
         {
             return _invoice;
