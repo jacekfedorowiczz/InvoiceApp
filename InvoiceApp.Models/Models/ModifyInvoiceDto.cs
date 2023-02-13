@@ -10,7 +10,7 @@ namespace InvoiceApp.Models.Models
     {
         public string InvoiceNo { get; set; }
         public string Vendor { get; set; }
-        public Address VendorAdress { get; set; }
+        public Address VendorAddress { get; set; }
         public string Vendee { get; set; }
         public Address VendeeAddress { get; set; }
         public IEnumerable<Product> Products { get; set; }
